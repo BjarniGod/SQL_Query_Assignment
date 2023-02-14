@@ -2,7 +2,19 @@
 require('database.php');
 
 
-$query = '';// PUT YOUR SQL QUERY HERE
+$query = 'SELECT 
+t1.customerID
+,t1.emailAddress
+,t1.firstName
+,t1.lastName
+,t2.line1
+,t2.city
+,t2.state
+,t2.zipCode
+,t2.phone
+FROM customers as t1
+INNER JOIN addresses as t2
+ON t1.customerID = t2.customerID';// PUT YOUR SQL QUERY HERE
 // Example: $query = 'SELECT * FROM customers';
 
 $statement = $db->prepare($query);
